@@ -39,7 +39,7 @@ const Navbar = () => {
       setShowDropdown(!showDropdown);
     }
     useEffect(() => { 
-      const storedemail = sessionStorage.getItem("name");
+      const storedemail = sessionStorage.getItem("email");
 
       if (storedemail) {
             setIsLoggedIn(true);
