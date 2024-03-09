@@ -5,6 +5,7 @@ import Layout from './Components/LandngPage/Landing_Page';
 import SignUp from './Components/Sign_Up/Sign_Up';
 import Login from './Components/Login/Login';
 import Consultation from './Components/InstantConsultationBooking/InstantConsultation';
+import Notification from './Components/Notification/Notification'; // Import Notification component
 
 function Home() {
   return <h1>Home Page</h1>;
@@ -23,12 +24,14 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar />
-        <Routes>
-        <Route path="/" element={<Layout />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/instant-consultation" element={<Consultation />} />
-        </Routes>
+        <Notification> {/* Notification component wrapped around the Router */}
+          <Routes>
+            <Route path="/" element={<Layout />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/instant-consultation" element={<Consultation />} />
+          </Routes>
+        </Notification>
       </BrowserRouter>
     </div>
   );
