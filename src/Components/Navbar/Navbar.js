@@ -73,6 +73,10 @@ const Navbar = () => {
         {isLoggedIn?(
           <>
             <li className="link">
+            <Link to="/instant-consultation">Consultation</Link>
+            </li>
+
+            <li className="link">
             <Link to="/reviews">Welcome, {username.split('@')[0]}</Link>
             </li>
 
