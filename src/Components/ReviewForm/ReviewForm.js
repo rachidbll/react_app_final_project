@@ -1,45 +1,43 @@
-// src/components/Reviews.js
+import React, { useState, useEffect } from 'react';
+import './ReviewForm.css';
 
-import React from 'react';
-import './ReviewForm.css'; // Import your external CSS file for additional styling
+const ReviewsTable = () => {
+  const [doctors, setDoctors] = useState([]);
 
-const Reviews = () => {
-  // Sample doctors data (you can replace this with your actual data)
-  const doctors = [
-    { id: 1, name: 'Dr. John Doe', feedbackGiven: true },
-    { id: 2, name: 'Dr. Jane Smith', feedbackGiven: false },
-    // Add more doctor objects as needed
-  ];
+  useEffect(() => {
+    const storedDoctors = JSON.parse(localStorage.getItem('appointmentData'));
 
-  const handleFeedback = (doctorId) => {
-    // Handle feedback button click here (e.g., open feedback form)
-    console.log(`Give feedback for doctor with ID: ${doctorId}`);
-  };
+    if (Array.isArray(storedDoctors)) {
+      setDoctors(storedDoctors);
+    } else if (storedDoctors) {
+      // Convert to array if not already an array
+      setDoctors([storedDoctors]);
+    }
+  }, []);
 
   return (
-    <div className="reviews-table">
+    <div className='flex-hero'>
+      <h2 className="mb-4">Reviews</h2>
       <table className="table">
-        <thead>
+        <thead className="thead-dark">
           <tr>
-            <th>Doctor Name</th>
-            <th>Feedback Given</th>
-            <th>Actions</th>
+            <th scope="col">ID</th>
+            <th scope="col">Doctor Name</th>
+            <th scope="col">Doctor Speciality</th>
+            <th scope="col">Give Feedback</th>
+            <th scope="col">Given Feedback</th>
           </tr>
         </thead>
         <tbody>
           {doctors.map((doctor) => (
             <tr key={doctor.id}>
-              <td>{doctor.name}</td>
-              <td>{doctor.feedbackGiven ? 'Yes' : 'No'}</td>
+              <td>{doctor.id}</td>
+              <td>{doctor.doctorName}</td>
+              <td>{doctor.speciality}</td>
               <td>
-                <button
-                  className="btn btn-primary"
-                  onClick={() => handleFeedback(doctor.id)}
-                  disabled={doctor.feedbackGiven}
-                >
-                  {doctor.feedbackGiven ? 'Feedback Given' : 'Give Feedback'}
-                </button>
+                <button className="btn btn-primary">Give Feedback</button>
               </td>
+              <td>{doctor.feedbackGiven ? 'Yes' : 'No'}</td>
             </tr>
           ))}
         </tbody>
@@ -48,4 +46,4 @@ const Reviews = () => {
   );
 };
 
-export default Reviews;
+export default ReviewsTable;
