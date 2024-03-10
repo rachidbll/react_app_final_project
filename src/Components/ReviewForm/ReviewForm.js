@@ -17,9 +17,9 @@ const ReviewsTable = () => {
 
   return (
     <div className='flex-hero'>
-      <h2 className="mb-4">Reviews</h2>
-      <table className="table">
-        <thead className="thead-dark">
+      <h2>Reviews</h2>
+      <table className="table table-bordered table-striped">
+        <thead>
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Doctor Name</th>
@@ -29,8 +29,8 @@ const ReviewsTable = () => {
           </tr>
         </thead>
         <tbody>
-          {doctors.map((doctor) => (
-            <tr key={doctor.id}>
+          {doctors.map((doctor, index) => (
+            <tr key={doctor.id} className={index % 2 === 0 ? 'even-row' : 'odd-row'}>
               <td>{doctor.id}</td>
               <td>{doctor.doctorName}</td>
               <td>{doctor.speciality}</td>
@@ -43,6 +43,7 @@ const ReviewsTable = () => {
         </tbody>
       </table>
     </div>
+  
   );
 };
 

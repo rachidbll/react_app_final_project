@@ -1,22 +1,23 @@
 /* Notification.css */
-
 .notification {
     position: sticky;
     top: 0;
     background-color: #f8f9fa; /* Light gray background */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Shadow for depth */
     border-radius: 0.25rem; /* Rounded corners */
-    padding: 1rem;
-  }
-  
-  .cancel-button {
+    padding: 3rem;
+    width: auto;
+    margin-top: 10rem;
+    /*margin: auto;*/
+}
+
+.cancel-button {
     background-color: #28a745; /* Green button */
     border-color: #28a745; /* Green button border color */
     color: #fff; /* White text */
-  }
-  
-  .cancel-button:hover {
+}
+
+.cancel-button:hover {
     background-color: #218838; /* Darker green on hover */
     border-color: #1e7e34; /* Darker green border on hover */
-  }
-  
+}
