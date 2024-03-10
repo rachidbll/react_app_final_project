@@ -23,9 +23,10 @@ const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => 
   const handleFormSubmit = (appointmentData) => {
     const newAppointment = {
       id: uuidv4(),
-      name: name, // Include doctor's name
-      speciality: speciality, // Include doctor's speciality
-      experience: experience, // Include doctor's experience
+      name: name,
+      doctorName: {name}["name"], // Include doctor's name
+      speciality: {speciality}["speciality"], // Include doctor's speciality
+      experience: {experience}["experience"], // Include doctor's experience
       ...appointmentData,
     };
     const updatedAppointments = [...appointments, newAppointment];

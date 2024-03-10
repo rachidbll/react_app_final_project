@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../Navbar/Navbar';
+import './Notification.css'; // Import your external CSS file for additional styling
 
 const Notification = ({ children }) => {
   const [appointmentBooked, setAppointmentBooked] = useState(false);
-  const [doctorName, setDoctorName] = useState("");
+  const [appointmentData, setAppointmentData] = useState(null);
 
   useEffect(() => {
     const storedAppointmentData = JSON.parse(localStorage.getItem('appointmentData'));
 
     if (storedAppointmentData) {
-      setDoctorName(storedAppointmentData.doctorName);
+      setAppointmentData(storedAppointmentData);
       setAppointmentBooked(true);
     }
   }, []);
 
   const handleCancelAppointment = () => {
     localStorage.removeItem('appointmentData');
-    setDoctorName("");
+    setAppointmentData(null);
     setAppointmentBooked(false);
   };
 
@@ -26,8 +27,10 @@ const Notification = ({ children }) => {
       {children}
       {appointmentBooked && (
         <div className="notification">
-          <p>Your appointment with {doctorName} is booked.</p>
-          <button onClick={handleCancelAppointment}>Cancel Appointment</button>
+          <legend>Appointment details</legend>
+          <p>Hey {appointmentData.name}, your appointment with {appointmentData.doctorName}, {appointmentData.speciality}, {appointmentData.experience} years of experience, is booked on {appointmentData.selectedDate} at {appointmentData.selectedSlot}.</p>
+          <p>Your appointment with {appointmentData.doctorName} is booked.</p>
+          <button className="btn cancel-button" onClick={handleCancelAppointment}>Cancel Appointment</button>
         </div>
       )}
     </div>
