@@ -77,7 +77,7 @@ const Navbar = () => {
             </li>
 
             <li className="link">
-            <Link to="/reviews">Welcome, {username.split('@')[0]}</Link>
+            <Link to="/profile">Welcome, {username.split('@')[0]}</Link>
             </li>
 
             <li className="link">
@@ -85,8 +85,6 @@ const Navbar = () => {
                 Logout
               </button>
             </li>
-
-            
             
           </>
         ) : (
@@ -109,4 +107,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

@@ -7,6 +7,7 @@ import Login from './Components/Login/Login';
 import Consultation from './Components/InstantConsultationBooking/InstantConsultation';
 import Notification from './Components/Notification/Notification'; // Import Notification component
 import Reviews from './Components/ReviewForm/ReviewForm';
+import Profile from './Components/ProfileCard/ProfileCard'
 
 
 function Home() {
@@ -32,6 +33,7 @@ function App() {
             <Route path="/" element={<Layout />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/instant-consultation" element={<Consultation />} />
           </Routes>
         </Notification>

@@ -1,0 +1,17 @@
+/* ProfileCard.css */
+
+.profile-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .profile-card h2 {
+    margin-bottom: 10px;
+  }
+  
+  .profile-card .profile-details p {
+    margin-bottom: 5px;
+  }
+  
